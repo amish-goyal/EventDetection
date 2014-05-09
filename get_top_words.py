@@ -1,17 +1,23 @@
+"""
+This script writes the top words according to the topic word distribution output by LDA to a file named top-words.txt
+The variables that need to be set before running the script are dir (the path of the LDA output dir), TotalTopics, totalW
+"""
+
 import pickle
 import numpy as np
 #voca,lda=pickle.load(open('model.dat'))
 
 dir='lda_outputs/css/'
 TotalTopics=35
+totalW=15
 
 wtd=pickle.load(open(dir+'word_topic_dist.pkl'))
 
 tws=open(dir+'topics.txt').readlines()
-with open(dir+'top15-2.txt','w') as f:
+with open(dir+'top-words.txt','w') as f:
     for k in xrange(TotalTopics):
         f.write('TOPIC: %d+ \n' %(k))
-        for word in tws[k].split(' ')[:15]:
+        for word in tws[k].split(' ')[:totalW]:
             f.write(word+'\n')
         f.write('\n\n')
 """
