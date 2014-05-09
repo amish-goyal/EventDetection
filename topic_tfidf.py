@@ -1,3 +1,10 @@
+"""
+This script outputs a dictionary with the top words for each topic according to the TFIDF metric
+the total words for each topic can be set using the variable totalW
+the total topics need to be set by updating the TotalTopics variable
+the dir variable must contain the path of the LDA output directory
+"""
+
 import pickle
 import numpy as np  
 from sklearn.feature_extraction.text import TfidfVectorizer
